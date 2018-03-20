@@ -1,32 +1,246 @@
 {  
-  "nodes":[  
-    {
-      "id": 0,
-      "name": "station 0",
-      "x":50,
-      "y":50
-    },
+  "nodes":[
     {
       "id": 1,
-      "name": "station 1",
-      "x":10,
-      "y":10
+      "name": "South Ferry",
+      "x": 410,
+      "y": 684
     },
     {
       "id": 2,
-      "name": "station 2",
-      "x":100,
-      "y":100
+      "name": "Rector St (1)",
+      "x": 262,
+      "y": 572
+    },
+    {
+      "id": 3,
+      "name": "Chambers St (1/2/3)",
+      "x": 258,
+      "y": 378
+    },
+    {
+      "id": 4,
+      "name": "Franklin St",
+      "x": 252,
+      "y": 330
+    },
+    {
+      "id": 5,
+      "name": "Canal St (1)",
+      "x": 244,
+      "y": 286
+    },
+    {
+      "id": 6,
+      "name": "Houston St",
+      "x": 218,
+      "y": 210
+    },
+    {
+      "id": 7,
+      "name": "Christoper St-Sheridan Sq",
+      "x": 178,
+      "y": 122
+    },
+    {
+      "id": 8,
+      "name": "14th St (1/2/3)",
+      "x": 170,
+      "y": 30
+    },
+    {
+      "id": 9,
+      "name": "Wall St (2/3)",
+      "x": 466,
+      "y": 552
+    },
+    {
+      "id": 10,
+      "name": "Fulton St-Broadway Nassau",
+      "x": 466,
+      "y": 502
+    },
+    {
+      "id": 11,
+      "name": "Park Place",
+      "x": 348,
+      "y": 426
+    },
+    {
+      "id": 12,
+      "name": "Whitehall St-South Ferry",
+      "x": 426,
+      "y": 670
+    },
+    {
+      "id": 13,
+      "name": "Rector St (R/W)",
+      "x": 326,
+      "y": 572
+    },
+    {
+      "id": 14,
+      "name": "Cortlandt St",
+      "x": 336,
+      "y": 510
+    },
+    {
+      "id": 15,
+      "name": "City Hall",
+      "x": 390,
+      "y": 392
+    },
+    {
+      "id": 16,
+      "name": "Canal St (J/M/N/Q/R/Z/6)",
+      "x": 430,
+      "y": 302
+    },
+    {
+      "id": 17,
+      "name": "Prince St",
+      "x": 420,
+      "y": 220
+    },
+    {
+      "id": 18,
+      "name": "8th St-NYU",
+      "x": 424,
+      "y": 60
+    },
+    {
+      "id": 19,
+      "name": "14th St-Union Sq",
+      "x": 428,
+      "y": 14
+    },
+    {
+      "id": 20,
+      "name": "Chambers St (A/C)",
+      "x": 298,
+      "y": 376
+    },
+    {
+      "id": 21,
+      "name": "Canal St (A/C/E)",
+      "x": 288,
+      "y": 294
+    },
+    {
+      "id": 22,
+      "name": "Spring St (C/E)",
+      "x": 288,
+      "y": 244
+    },
+    {
+      "id": 23,
+      "name": "W 4th St-Washington Sq",
+      "x": 288,
+      "y": 128
+    },
+    {
+      "id": 24,
+      "name": "14th St (A/C/E)",
+      "x": 44,
+      "y": 18
+    },
+    {
+      "id": 25,
+      "name": "World Trade",
+      "x": 300,
+      "y": 460
+    },
+    {
+      "id": 26,
+      "name": "Brooklyn Bridge-City Hall",
+      "x": 460,
+      "y": 392
+    },
+    {
+      "id": 27,
+      "name": "Spring St (6)",
+      "x": 462,
+      "y": 240
+    },
+    {
+      "id": 28,
+      "name": "Bleecker St",
+      "x": 458,
+      "y": 180
+    },
+    {
+      "id": 29,
+      "name": "Astor Pl",
+      "x": 444,
+      "y": 66
+    },
+    {
+      "id": 30,
+      "name": "Bowling Green",
+      "x": 380,
+      "y": 656
+    },
+    {
+      "id": 31,
+      "name": "Wall St (4/5)",
+      "x": 400,
+      "y": 556
+    },
+    {
+      "id": 32,
+      "name": "Broad St",
+      "x": 438,
+      "y": 592
+    },
+    {
+      "id": 33,
+      "name": "Chambers St (J/M/Z)",
+      "x": 480,
+      "y": 378
+    },
+    {
+      "id": 34,
+      "name": "Bowery",
+      "x": 536,
+      "y": 264
+    },
+    {
+      "id": 35,
+      "name": "Delancey St-Essex St",
+      "x": 636,
+      "y": 254
+    },
+    {
+      "id": 36,
+      "name": "East Broadway",
+      "x": 660,
+      "y": 300
+    },
+    {
+      "id": 37,
+      "name": "2nd Ave",
+      "x": 576,
+      "y": 198
+    },
+    {
+      "id": 38,
+      "name": "Broadway-Lafayette St",
+      "x": 448,
+      "y": 194
+    },
+    {
+      "id": 39,
+      "name": "14th St (F)",
+      "x": 290,
+      "y": 18
+    },
+    {
+      "id": 40,
+      "name": "Grand St",
+      "x": 560,
+      "y": 284
     }
   ],
-  "links":[  
-    {  
-      "source":0,
-      "target":1
-    },
-    {  
-      "source":0,
-      "target":2
-    }
+  "links":[
   ]
 }

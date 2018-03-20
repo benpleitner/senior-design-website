@@ -39,8 +39,8 @@ function assignLinkClass(link, graph) {
 }
 
 function selectableForceDirectedGraph() {
-    var width = 960,
-    height = 500,
+    var width = 740,
+    height = 720,
     shiftKey, ctrlKey;
 
     var nodeGraph = null;
@@ -122,10 +122,12 @@ function selectableForceDirectedGraph() {
 
     var vis = svg_graph.append("svg:g");
 
-    vis.attr('fill', 'red')
+    // vis.attr('fill', 'red')
+    vis.attr('fill', 'black')
     .attr('stroke', 'black')
     .attr('stroke-width', 1)
-    .attr('opacity', 0.5)
+    // .attr('opacity', 0.5)
+    .attr('opacity', 1)
     .attr('id', 'vis')
 
 

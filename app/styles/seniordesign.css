@@ -9,6 +9,12 @@ header {
     font-size: 16px;
 }
 
+/* Temp image */
+.svgToBorder {
+  /*background-image: url("/images/Subway.png");*/
+  background-size: 100%;
+}
+
 /* Button */
 .center {
     text-align: center;
