@@ -1,7 +1,10 @@
 var edges = [];
-edges[0] = [0, 0, 0];
-edges[1] = [0, 0, 0];
-edges[2] = [0, 0, 0];
+// edges[0] = [0, 0, 0];
+// edges[1] = [0, 0, 0];
+// edges[2] = [0, 0, 0];
+for (var i = 0; i < 40; i++) {
+    edges[i] = [];
+}
 // var selectedEdges = [];
 var selectedCount = 0;
 var selectedEdge = "";
@@ -15,7 +18,7 @@ function runAlgorithm() {
         var e1 = parseInt(e[1])
         edges[e0][e1] = 1;
         edges[e1][e0] = 1;
-        console.log("0: " + e0 + " 1: " + e1);
+        // console.log("0: " + e0 + " 1: " + e1);
         assignLinkClass(globalLink, globalGraph);
     } else {
         // TODO: Display message
@@ -26,6 +29,15 @@ function runAlgorithm() {
 function assignLinkClass(link, graph) {
     link = link.data(graph.links).enter().append("line")
     .attr("class", function(d) {
+        if (edges[d.source["id"]][d.target["id"]] != undefined) {
+            if (d.color == "WALK") {
+                // TODO: Display message
+                console.log("HERE");
+            } else {
+                return "link-maintain";
+            }
+        }
+
         if (d.color === "Blue") {
             return "link-blue";
         } else if (d.color === "Red") {
@@ -38,6 +50,8 @@ function assignLinkClass(link, graph) {
             return "link-yellow";
         } else if (d.color === "Brown") {
             return "link-brown";
+        } else if (d.color === "WALK") {
+            return "link-walk";
         }
         // if (edges[d.source["id"]][d.target["id"]] != 0) {
         //     return "link-maintain";
@@ -226,11 +240,11 @@ function selectableForceDirectedGraph() {
 
     d3.json("graph.json", function(error, graph) {
         nodeGraph = graph;
-        console.log(node);
+        // console.log(node);
 
-        graph.nodes.forEach(function(d) {
-            console.log(d);
-        })
+        // graph.nodes.forEach(function(d) {
+        //     console.log(d);
+        // })
 
         graph.links.forEach(function(d) {
             d.source = graph.nodes[d.source];
