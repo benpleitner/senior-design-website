@@ -75,6 +75,13 @@ header {
     text-decoration: none;
 }
 
+/* Error message */
+#errorMessage {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}
+
 /* Footer */
 footer {
     background-color: #062946;

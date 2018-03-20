@@ -1,7 +1,4 @@
 var edges = [];
-// edges[0] = [0, 0, 0];
-// edges[1] = [0, 0, 0];
-// edges[2] = [0, 0, 0];
 for (var i = 0; i < 40; i++) {
     edges[i] = [];
 }
@@ -10,6 +7,7 @@ var selectedCount = 0;
 var selectedEdge = "";
 var globalLink;
 var globalGraph;
+var firstTime = true;
 
 function runAlgorithm() {
     if (selectedCount == 2) {
@@ -27,6 +25,7 @@ function runAlgorithm() {
 }
 
 function assignLinkClass(link, graph) {
+    var maintainCount = 0;
     link = link.data(graph.links).enter().append("line")
     .attr("class", function(d) {
         if (edges[d.source["id"]][d.target["id"]] != undefined) {
@@ -34,6 +33,7 @@ function assignLinkClass(link, graph) {
                 // TODO: Display message
                 console.log("HERE");
             } else {
+                maintainCount++;
                 return "link-maintain";
             }
         }
@@ -64,6 +64,19 @@ function assignLinkClass(link, graph) {
     .attr("y1", function(d) { return d.source.y; })
     .attr("x2", function(d) { return d.target.x; })
     .attr("y2", function(d) { return d.target.y; });
+
+    if (!firstTime) {
+        // TODO: Display error message - Nodes must be adjacent
+        console.log("HERE");
+    } else {
+        firstTime = false;
+    }
+}
+
+function parseFile() {
+    $.get('scripts/data.txt', function(d) {
+        var data = d;
+    });
 }
 
 function selectableForceDirectedGraph() {
@@ -162,6 +175,7 @@ function selectableForceDirectedGraph() {
     brush.call(brusher)
     .on("mousedown.brush", function(d) {
         selectedCount = 0;
+        selectedEdge = "";
         console.log(selectedCount);
     })
     .on("touchstart.brush", null) 
@@ -322,15 +336,18 @@ function selectableForceDirectedGraph() {
                     return p.selected = p.previouslySelected = false;
                 })
                 selectedCount = 0;
+                selectedEdge = "";
             }
 
             // Always select this node
             // d3.select(this).classed("selected", d.selected = !d.previouslySelected);
             d3.select(this).classed("selected", function(p) {
                 if (selectedCount == 0) {
+                    selectedEdge = "";
                     selectedEdge += p["id"];
                 } else if (selectedCount = 1) {
                     selectedEdge += "-" + p["id"];
+                    console.log(selectedEdge);
                 }
                 return d.selected = !d.previouslySelected;
             })
@@ -399,6 +416,7 @@ function selectableForceDirectedGraph() {
         brush.call(brusher)
         .on("mousedown.brush", function() {
             selectedCount = 0;
+            selectedEdge = "";
             console.log(selectedCount);
         })
         .on("touchstart.brush", null)                                                                      
