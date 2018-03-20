@@ -26,6 +26,19 @@ function runAlgorithm() {
 function assignLinkClass(link, graph) {
     link = link.data(graph.links).enter().append("line")
     .attr("class", function(d) {
+        if (d.color === "blue") {
+            return "link-blue";
+        } else if (d.color === "red") {
+            return "link-red";
+        } else if (d.color === "green") {
+            return "link-green";
+        } else if (d.color === "orange") {
+            return "link-orange";
+        } else if (d.color === "yellow") {
+            return "link-yellow";
+        } else if (d.color === "brown") {
+            return "link-brown";
+        }
         // if (edges[d.source["id"]][d.target["id"]] != 0) {
         //     return "link-maintain";
         // } else {

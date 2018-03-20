@@ -440,22 +440,22 @@
     },
     {
       "source": 35,
+      "target": 36,
+      "color": "orange"
+    },
+    {
+      "source": 35,
       "target": 37,
-      "color": "brown"
+      "color": "orange"
     },
     {
       "source": 37,
       "target": 38,
-      "color": "brown"
+      "color": "orange"
     },
     {
       "source": 38,
       "target": 40,
-      "color": "brown"
-    },
-    {
-      "source": 35,
-      "target": 36,
       "color": "orange"
     }
   ]
