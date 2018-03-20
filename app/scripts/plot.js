@@ -26,11 +26,12 @@ function runAlgorithm() {
 function assignLinkClass(link, graph) {
     link = link.data(graph.links).enter().append("line")
     .attr("class", function(d) {
-        if (edges[d.source["id"]][d.target["id"]] != 0) {
-            return "link-maintain";
-        } else {
-            return "link";
-        }
+        // if (edges[d.source["id"]][d.target["id"]] != 0) {
+        //     return "link-maintain";
+        // } else {
+        //     return "link";
+        // }
+        return "link";
     })
     .attr("x1", function(d) { return d.source.x; })
     .attr("y1", function(d) { return d.source.y; })

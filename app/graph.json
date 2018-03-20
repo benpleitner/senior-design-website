@@ -1,6 +1,12 @@
 {  
   "nodes":[
     {
+      "id": 0,
+      "name": "N/A",
+      "x": -10000,
+      "y": -10000
+    },
+    {
       "id": 1,
       "name": "South Ferry",
       "x": 410,
@@ -242,5 +248,215 @@
     }
   ],
   "links":[
+    {
+      "source": 1,
+      "target": 2,
+      "color": "red"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "color": "red"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "color": "red"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "color": "red"
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "color": "red"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "color": "red"
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "color": "red"
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "color": "red"
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "color": "red"
+    },
+    {
+      "source": 3,
+      "target": 11,
+      "color": "red"
+    },
+    {
+      "source": 10,
+      "target": 20,
+      "color": "blue"
+    },
+    {
+      "source": 10,
+      "target": 26,
+      "color": "green"
+    },
+    {
+      "source": 10,
+      "target": 31,
+      "color": "green"
+    },
+    {
+      "source": 10,
+      "target": 32,
+      "color": "brown"
+    },
+    {
+      "source": 10,
+      "target": 33,
+      "color": "brown"
+    },
+    {
+      "source": 12,
+      "target": 13,
+      "color": "yellow"
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "color": "yellow"
+    },
+    {
+      "source": 14,
+      "target": 15,
+      "color": "yellow"
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "color": "yellow"
+    },
+    {
+      "source": 16,
+      "target": 17,
+      "color": "yellow"
+    },
+    {
+      "source": 16,
+      "target": 26,
+      "color": "green"
+    },
+    {
+      "source": 16,
+      "target": 27,
+      "color": "green"
+    },
+    {
+      "source": 16,
+      "target": 33,
+      "color": "brown"
+    },
+    {
+      "source": 16,
+      "target": 34,
+      "color": "brown"
+    },
+    {
+      "source": 17,
+      "target": 18,
+      "color": "yellow"
+    },
+    {
+      "source": 18,
+      "target": 19,
+      "color": "yellow"
+    },
+    {
+      "source": 19,
+      "target": 29,
+      "color": "green"
+    },
+    {
+      "source": 20,
+      "target": 21,
+      "color": "blue"
+    },
+    {
+      "source": 21,
+      "target": 22,
+      "color": "blue"
+    },
+    {
+      "source": 21,
+      "target": 25,
+      "color": "blue"
+    },
+    {
+      "source": 22,
+      "target": 23,
+      "color": "blue"
+    },
+    {
+      "source": 23,
+      "target": 24,
+      "color": "blue"
+    },
+    {
+      "source": 23,
+      "target": 38,
+      "color": "orange"
+    },
+    {
+      "source": 23,
+      "target": 39,
+      "color": "orange"
+    },
+    {
+      "source": 27,
+      "target": 28,
+      "color": "green"
+    },
+    {
+      "source": 28,
+      "target": 29,
+      "color": "green"
+    },
+    {
+      "source": 30,
+      "target": 31,
+      "color": "green"
+    },
+    {
+      "source": 34,
+      "target": 35,
+      "color": "brown"
+    },
+    {
+      "source": 35,
+      "target": 37,
+      "color": "brown"
+    },
+    {
+      "source": 37,
+      "target": 38,
+      "color": "brown"
+    },
+    {
+      "source": 38,
+      "target": 40,
+      "color": "brown"
+    },
+    {
+      "source": 35,
+      "target": 36,
+      "color": "brown"
+    }
   ]
 }
