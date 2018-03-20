@@ -26,17 +26,17 @@ function runAlgorithm() {
 function assignLinkClass(link, graph) {
     link = link.data(graph.links).enter().append("line")
     .attr("class", function(d) {
-        if (d.color === "blue") {
+        if (d.color === "Blue") {
             return "link-blue";
-        } else if (d.color === "red") {
+        } else if (d.color === "Red") {
             return "link-red";
-        } else if (d.color === "green") {
+        } else if (d.color === "Green") {
             return "link-green";
-        } else if (d.color === "orange") {
+        } else if (d.color === "Orange") {
             return "link-orange";
-        } else if (d.color === "yellow") {
+        } else if (d.color === "Yellow") {
             return "link-yellow";
-        } else if (d.color === "brown") {
+        } else if (d.color === "Brown") {
             return "link-brown";
         }
         // if (edges[d.source["id"]][d.target["id"]] != 0) {
