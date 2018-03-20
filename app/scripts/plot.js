@@ -161,8 +161,8 @@ function selectableForceDirectedGraph() {
 
     brush.call(brusher)
     .on("mousedown.brush", function(d) {
-        // TODO: Fix this
         selectedCount = 0;
+        console.log(selectedCount);
     })
     .on("touchstart.brush", null) 
     .on("touchmove.brush", null)
@@ -312,20 +312,19 @@ function selectableForceDirectedGraph() {
         .attr("cy", function(d) { return d.y; })
         .on("dblclick", function(d) { d3.event.stopPropagation(); })
         .on("click", function(d) {
-            // TODO: Fix edge case for selectedCount var
             if (d3.event.defaultPrevented) {
                 return;
             }
 
             if (!shiftKey) {
-                //if the shift key isn't down, unselect everything
+                // If the shift key isn't down, unselect everything
                 node.classed("selected", function(p) {
                     return p.selected = p.previouslySelected = false;
                 })
                 selectedCount = 0;
             }
 
-            // always select this node
+            // Always select this node
             // d3.select(this).classed("selected", d.selected = !d.previouslySelected);
             d3.select(this).classed("selected", function(p) {
                 if (selectedCount == 0) {
@@ -398,7 +397,10 @@ function selectableForceDirectedGraph() {
         ctrlKey = d3.event.ctrlKey;
 
         brush.call(brusher)
-        .on("mousedown.brush", null)
+        .on("mousedown.brush", function() {
+            selectedCount = 0;
+            console.log(selectedCount);
+        })
         .on("touchstart.brush", null)                                                                      
         .on("touchmove.brush", null)                                                                       
         .on("touchend.brush", null);                                                                       
