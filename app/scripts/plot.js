@@ -2,7 +2,6 @@ var edges = [];
 for (var i = 0; i < 40; i++) {
     edges[i] = [];
 }
-// var selectedEdges = [];
 var selectedCount = 0;
 var selectedEdge = "";
 var globalLink;
@@ -11,13 +10,7 @@ var firstTime = true;
 
 function runAlgorithm() {
     if (selectedCount == 2) {
-        var e = selectedEdge.split("-");
-        var e0 = parseInt(e[0]);
-        var e1 = parseInt(e[1])
-        edges[e0][e1] = 1;
-        edges[e1][e0] = 1;
-        // console.log("0: " + e0 + " 1: " + e1);
-        assignLinkClass(globalLink, globalGraph);
+        generateMaintenanceSets();
     } else {
         // TODO: Display message
         console.log("HERE");
@@ -31,7 +24,7 @@ function assignLinkClass(link, graph) {
         if (edges[d.source["id"]][d.target["id"]] != undefined) {
             if (d.color == "WALK") {
                 // TODO: Display message
-                console.log("HERE");
+                // console.log("HERE");
             } else {
                 maintainCount++;
                 return "link-maintain";
@@ -73,9 +66,43 @@ function assignLinkClass(link, graph) {
     }
 }
 
-function parseFile() {
-    $.get('scripts/data.txt', function(d) {
-        var data = d;
+function generateMaintenanceSets() {
+    $.get('scripts/allMaintenanceSets.txt', function(d) {
+        var lines = d.split("\n");
+        var c = lines[0].split(",")[0];
+        var add = lines[0].split(",")[1];
+        var isSelectedEdgeInSet = false;
+        for (var i = 0; i < lines.length; i++) {
+            if (lines[i] === "") {
+                continue;
+            } else if (!isNaN(lines[i])) {
+                // console.log(lines[i]);
+                i++;
+                while (isNaN(lines[i])) {
+                    // console.log(lines[i]);
+                    var e = lines[i].split(",");
+                    var e0 = parseInt(e[0]);
+                    var e1 = parseInt(e[1])
+                    edges[e0][e1] = 1;
+                    edges[e1][e0] = 1;
+                    if (lines[i] === selectedEdge || (e1 + "," + e0) === selectedEdge) {
+                        isSelectedEdgeInSet = true;
+                    }
+                    i++;
+                }
+
+                if (!isSelectedEdgeInSet) {
+                    edges = [];
+                    for (var j = 0; j < 40; j++) {
+                        edges[j] = [];
+                    }
+                } else {
+                    console.log(edges);
+                    assignLinkClass(globalLink, globalGraph);
+                    break;
+                }
+            }
+        }
     });
 }
 
@@ -346,7 +373,7 @@ function selectableForceDirectedGraph() {
                     selectedEdge = "";
                     selectedEdge += p["id"];
                 } else if (selectedCount = 1) {
-                    selectedEdge += "-" + p["id"];
+                    selectedEdge += "," + p["id"];
                     console.log(selectedEdge);
                 }
                 return d.selected = !d.previouslySelected;
