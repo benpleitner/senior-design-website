@@ -16,8 +16,6 @@ for (var i = 0; i < 40; i++) {
 
 /*
 TODO:
-Make and fill graph data structure
-Implement dijkstra
 Fix checks about neighboring nodes
 Get edge weights for graph
 */
@@ -44,13 +42,8 @@ function assignLinkClass(link, graph) {
     link = link.data(graph.links).enter().append("line")
     .attr("class", function(d) {
         if (edges[d.source["id"]][d.target["id"]] != undefined) {
-            if (d.color == "WALK") {
-                // TODO: Display message
-                // console.log("HERE");
-            } else {
-                maintainCount++;
-                return "link-maintain";
-            }
+            maintainCount++;
+            return "link-maintain";
         }
 
         if (d.color === "Blue") {
