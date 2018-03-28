@@ -2,15 +2,83 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Benjamin Leitner</title>
+    <title>Senior Design</title>
     <meta name="viewport" content="width=device-width">
     <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/font-awesome.min.css">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="shortcut icon" href="../images/taPic.png">
-    <script src="scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/newyork.css">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="scripts/user.js"></script>
+
+    <style>
+      .node {
+        stroke: #fff;
+        stroke-width: 0.1px;
+      }
+      .node .selected {
+        stroke: black;
+        stroke-width: 6px;
+      }
+      .link {
+        stroke: #999;
+        stroke-width: 2px;
+      }
+      .link-blue {
+        stroke: blue;
+        stroke-width: 2px;
+      }
+      .link-red {
+        stroke: red;
+        stroke-width: 2px;
+      }
+      .link-green {
+        stroke: green;
+        stroke-width: 2px;
+      }
+      .link-orange {
+        stroke: orange;
+        stroke-width: 2px;
+      }
+      .link-yellow {
+        stroke: yellow;
+        stroke-width: 2px;
+      }
+      .link-brown {
+        stroke: #A52A2A;
+        stroke-width: 2px;
+      }
+      .link-walk {
+        /*stroke: #999999;*/
+        stroke: rgba(0, 0, 0, 0);
+        stroke-width: 2px;
+      }
+      .link-maintain {
+        stroke: black;
+        stroke-width: 6px;
+      }
+      .brush .extent {
+        fill-opacity: .1;
+        stroke: #fff;
+        shape-rendering: crispEdges;
+      }
+      #d3_selectable_force_directed_graph:focus {
+        outline: 0;
+      }
+      .svgToBorder {
+        border: 1px solid #95001a;
+        border-radius: 4px;
+      }
+      text {
+        font-weight: 300;
+      }
+      /*#network {
+        height:100vh;
+      }*/
+    </style>
   </head>
   <body>
 
@@ -29,21 +97,41 @@
         <div class="collapse navbar-collapse" id="navbar">
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="newyork.html">MTA Employee</a></li>
+            <li><a href="seniordesign.html">MTA Employee</a></li>
             <li><a href="newyork.html">Subway Rider</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="container">
-      <div class="row">
-        <div id="subway">
-          <img id="subway-image" src="http://www.urbanrail.net/am/nyrk/nyc-map-center.png"></img>
+    <header id="page-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p>TODO: Write insutrctions</p>
+          </div>
         </div>
+      </div>
+    </header>
+
+    <div class="background"></div>
+    <div class="overlay"></div>
+
+    <div class="container">
+      <!-- <p id="errorMessage"></p> -->
+      <div align='center' id="d3_selectable_force_directed_graph"></div>
+
+      <p id="values"></p>
+
+      <div class="row center" id="stackButton">
+        <a class="btn-geckoboard btn-outline btn-lg href" onclick="runAlgorithm()">Get Directions</a>
       </div>
     </div>
 
+    <footer>
+      <p id="names">Julie Engel | Sarah Organ | Isa Jimenez | Ben Leitner</p>
+    </footer>
 
+    <script>selectableForceDirectedGraph();</script>
   </body>
 </html>

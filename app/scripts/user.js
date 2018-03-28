@@ -6,11 +6,33 @@ var selectedCount = 0;
 var selectedEdge = "";
 var globalLink;
 var globalGraph;
-var firstTime = true;
+var graphWithWalking = [];
+for (var i = 0; i < 40; i++) {
+    graphWithWalking[i] = [];
+    for (var j = 0; j < 40; j++) {
+        graphWithWalking[i][j] = Infinity;
+    }
+}
+
+/*
+TODO:
+Make and fill graph data structure
+Implement dijkstra
+Fix checks about neighboring nodes
+Get edge weights for graph
+*/
 
 function runAlgorithm() {
     if (selectedCount == 2) {
-        generateMaintenanceSets();
+        var shortestPathInfo = dijkstra();
+        var path = constructPath(shortestPathInfo);
+        var prev = shortestPathInfo.startVertex;
+        for (var i = 0; i < path.length; i++) {
+            edges[prev][path[i]] = 1;
+            edges[path[i]][prev] = 1;
+            prev = path[i];
+        }
+        assignLinkClass(globalLink, globalGraph);
     } else {
         // TODO: Display message
         console.log("HERE");
@@ -57,54 +79,63 @@ function assignLinkClass(link, graph) {
     .attr("y1", function(d) { return d.source.y; })
     .attr("x2", function(d) { return d.target.x; })
     .attr("y2", function(d) { return d.target.y; });
-
-    if (!firstTime) {
-        // TODO: Display error message - Nodes must be adjacent
-        console.log("HERE");
-    } else {
-        firstTime = false;
-    }
 }
 
-function generateMaintenanceSets() {
-    $.get('scripts/allMaintenanceSets.txt', function(d) {
-        var lines = d.split("\n");
-        var c = lines[0].split(",")[0];
-        var add = lines[0].split(",")[1];
-        var isSelectedEdgeInSet = false;
-        for (var i = 0; i < lines.length; i++) {
-            if (lines[i] === "") {
-                continue;
-            } else if (!isNaN(lines[i])) {
-                // console.log(lines[i]);
-                i++;
-                while (isNaN(lines[i])) {
-                    // console.log(lines[i]);
-                    var e = lines[i].split(",");
-                    var e0 = parseInt(e[0]);
-                    var e1 = parseInt(e[1])
-                    edges[e0][e1] = 1;
-                    edges[e1][e0] = 1;
-                    if (lines[i] === selectedEdge || (e1 + "," + e0) === selectedEdge) {
-                        isSelectedEdgeInSet = true;
-                    }
-                    i++;
-                }
+function dijkstra() {
+    var numVertices = 40;
+    var e = selectedEdge.split(",");
+    var startVertex = parseInt(e[0]);
+    var done = new Array(numVertices);
+    done[startVertex] = true;
+    var pathLengths = new Array(numVertices);
+    var predecessors = new Array(numVertices);
 
-                if (!isSelectedEdgeInSet) {
-                    edges = [];
-                    for (var j = 0; j < 40; j++) {
-                        edges[j] = [];
-                    }
-                } else {
-                    console.log(edges);
-                    assignLinkClass(globalLink, globalGraph);
-                    $('#values').text("c value: " + c + ", additive value: " + add);
-                    break;
+    for (var i = 0; i < numVertices; i++) {
+        pathLengths[i] = graphWithWalking[startVertex][i];
+        if (graphWithWalking[startVertex][i] != Infinity) {
+            predecessors[i] = startVertex;
+        }
+    }
+
+    pathLengths[startVertex] = 0;
+
+    for (var i = 0; i < numVertices - 1; i++) {
+        var closest = -1;
+        var closestDistance = Infinity;
+        for (var j = 0; j < numVertices; j++) {
+            if (!done[j] && pathLengths[j] < closestDistance) {
+                closestDistance = pathLengths[j];
+                closest = j;
+            }
+        }
+
+        done[closest] = true;
+
+        for (var j = 0; j < numVertices; j++) {
+            if (!done[j]) {
+                var possiblyCloserDistance = pathLengths[closest] + graphWithWalking[closest][j];
+                if (possiblyCloserDistance < pathLengths[j]) {
+                    pathLengths[j] = possiblyCloserDistance;
+                    predecessors[j] = closest;
                 }
             }
         }
-    });
+    }
+
+  return { "startVertex": startVertex,
+           "pathLengths": pathLengths,
+           "predecessors": predecessors };
+}
+
+function constructPath(shortestPathInfo) {
+    var e = selectedEdge.split(",");
+    var endVertex = parseInt(e[1]);
+    var path = [];
+    while (endVertex != shortestPathInfo.startVertex) {
+        path.unshift(endVertex);
+        endVertex = shortestPathInfo.predecessors[endVertex];
+    }
+    return path;
 }
 
 function selectableForceDirectedGraph() {
@@ -280,7 +311,7 @@ function selectableForceDirectedGraph() {
 
     }
 
-    d3.json("graph.json", function(error, graph) {
+    d3.json("graphWithWalking.json", function(error, graph) {
         nodeGraph = graph;
         // console.log(node);
 
@@ -289,6 +320,12 @@ function selectableForceDirectedGraph() {
         // })
 
         graph.links.forEach(function(d) {
+            // console.log("source: " + d.source + ", target: " + d.target);
+            if (graphWithWalking[d.source][d.target] === Infinity &&
+                graphWithWalking[d.target][d.source] === Infinity) {
+                graphWithWalking[d.source][d.target] = 1;
+                graphWithWalking[d.target][d.source] = 1;
+            }
             d.source = graph.nodes[d.source];
             d.target = graph.nodes[d.target];
         });

@@ -1,0 +1,1046 @@
+{  
+  "nodes":[
+    {
+      "id": 0,
+      "name": "South Ferry",
+      "x": 410,
+      "y": 684
+    },
+    {
+      "id": 1,
+      "name": "Rector St (1)",
+      "x": 202,
+      "y": 572
+    },
+    {
+      "id": 2,
+      "name": "Chambers St (1/2/3)",
+      "x": 158,
+      "y": 378
+    },
+    {
+      "id": 3,
+      "name": "Franklin St",
+      "x": 158,
+      "y": 330
+    },
+    {
+      "id": 4,
+      "name": "Canal St (1)",
+      "x": 158,
+      "y": 286
+    },
+    {
+      "id": 5,
+      "name": "Houston St",
+      "x": 158,
+      "y": 210
+    },
+    {
+      "id": 6,
+      "name": "Christoper St-Sheridan Sq",
+      "x": 158,
+      "y": 122
+    },
+    {
+      "id": 7,
+      "name": "14th St (1/2/3)",
+      "x": 158,
+      "y": 30
+    },
+    {
+      "id": 8,
+      "name": "Wall St (2/3)",
+      "x": 466,
+      "y": 552
+    },
+    {
+      "id": 9,
+      "name": "Fulton St-Broadway Nassau",
+      "x": 466,
+      "y": 502
+    },
+    {
+      "id": 10,
+      "name": "Park Place",
+      "x": 300,
+      "y": 430
+    },
+    {
+      "id": 11,
+      "name": "Whitehall St-South Ferry",
+      "x": 426,
+      "y": 670
+    },
+    {
+      "id": 12,
+      "name": "Rector St (R/W)",
+      "x": 300,
+      "y": 572
+    },
+    {
+      "id": 13,
+      "name": "Cortlandt St",
+      "x": 336,
+      "y": 510
+    },
+    {
+      "id": 14,
+      "name": "City Hall",
+      "x": 390,
+      "y": 392
+    },
+    {
+      "id": 15,
+      "name": "Canal St (J/M/N/Q/R/Z/6)",
+      "x": 430,
+      "y": 302
+    },
+    {
+      "id": 16,
+      "name": "Prince St",
+      "x": 420,
+      "y": 220
+    },
+    {
+      "id": 17,
+      "name": "8th St-NYU",
+      "x": 424,
+      "y": 60
+    },
+    {
+      "id": 18,
+      "name": "14th St-Union Sq",
+      "x": 428,
+      "y": 14
+    },
+    {
+      "id": 19,
+      "name": "Chambers St (A/C)",
+      "x": 298,
+      "y": 376
+    },
+    {
+      "id": 20,
+      "name": "Canal St (A/C/E)",
+      "x": 288,
+      "y": 294
+    },
+    {
+      "id": 21,
+      "name": "Spring St (C/E)",
+      "x": 288,
+      "y": 244
+    },
+    {
+      "id": 22,
+      "name": "W 4th St-Washington Sq",
+      "x": 288,
+      "y": 110
+    },
+    {
+      "id": 23,
+      "name": "14th St (A/C/E)",
+      "x": 44,
+      "y": 18
+    },
+    {
+      "id": 24,
+      "name": "World Trade",
+      "x": 280,
+      "y": 460
+    },
+    {
+      "id": 25,
+      "name": "Brooklyn Bridge-City Hall",
+      "x": 460,
+      "y": 392
+    },
+    {
+      "id": 26,
+      "name": "Spring St (6)",
+      "x": 462,
+      "y": 240
+    },
+    {
+      "id": 27,
+      "name": "Bleecker St",
+      "x": 458,
+      "y": 180
+    },
+    {
+      "id": 28,
+      "name": "Astor Pl",
+      "x": 454,
+      "y": 76
+    },
+    {
+      "id": 29,
+      "name": "Bowling Green",
+      "x": 380,
+      "y": 656
+    },
+    {
+      "id": 30,
+      "name": "Wall St (4/5)",
+      "x": 384,
+      "y": 556
+    },
+    {
+      "id": 31,
+      "name": "Broad St",
+      "x": 438,
+      "y": 592
+    },
+    {
+      "id": 32,
+      "name": "Chambers St (J/M/Z)",
+      "x": 480,
+      "y": 378
+    },
+    {
+      "id": 33,
+      "name": "Bowery",
+      "x": 536,
+      "y": 264
+    },
+    {
+      "id": 34,
+      "name": "Delancey St-Essex St",
+      "x": 636,
+      "y": 254
+    },
+    {
+      "id": 35,
+      "name": "East Broadway",
+      "x": 660,
+      "y": 300
+    },
+    {
+      "id": 36,
+      "name": "2nd Ave",
+      "x": 576,
+      "y": 198
+    },
+    {
+      "id": 37,
+      "name": "Broadway-Lafayette St",
+      "x": 448,
+      "y": 194
+    },
+    {
+      "id": 38,
+      "name": "14th St (F)",
+      "x": 290,
+      "y": 18
+    },
+    {
+      "id": 39,
+      "name": "Grand St",
+      "x": 560,
+      "y": 284
+    }
+  ],
+  "links":[
+    {
+      "source": 0,
+      "target": 1,
+      "color": "WALK"
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "color": "WALK"
+    },
+    {
+      "source": 0,
+      "target": 11,
+      "color": "WALK"
+    },
+    {
+      "source": 0,
+      "target": 12,
+      "color": "WALK"
+    },
+    {
+      "source": 0,
+      "target": 29,
+      "color": "WALK"
+    },
+    {
+      "source": 0,
+      "target": 30,
+      "color": "WALK"
+    },
+    {
+      "source": 0,
+      "target": 31,
+      "color": "WALK"
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "color": "WALK"
+    },
+    {
+      "source": 1,
+      "target": 8,
+      "color": "WALK"
+    },
+    {
+      "source": 1,
+      "target": 10,
+      "color": "WALK"
+    },
+    {
+      "source": 1,
+      "target": 11,
+      "color": "WALK"
+    },
+    {
+      "source": 1,
+      "target": 12,
+      "color": "WALK"
+    },
+    {
+      "source": 1,
+      "target": 13,
+      "color": "WALK"
+    },
+    {
+      "source": 1,
+      "target": 24,
+      "color": "WALK"
+    },
+    {
+      "source": 1,
+      "target": 29,
+      "color": "WALK"
+    },
+    {
+      "source": 1,
+      "target": 30,
+      "color": "WALK"
+    },
+    {
+      "source": 1,
+      "target": 31,
+      "color": "WALK"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "color": "WALK"
+    },
+    {
+      "source": 2,
+      "target": 10,
+      "color": "WALK"
+    },
+    {
+      "source": 2,
+      "target": 12,
+      "color": "WALK"
+    },
+    {
+      "source": 2,
+      "target": 19,
+      "color": "WALK"
+    },
+    {
+      "source": 2,
+      "target": 24,
+      "color": "WALK"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "color": "WALK"
+    },
+    {
+      "source": 3,
+      "target": 19,
+      "color": "WALK"
+    },
+    {
+      "source": 3,
+      "target": 20,
+      "color": "WALK"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "color": "WALK"
+    },
+    {
+      "source": 4,
+      "target": 15,
+      "color": "WALK"
+    },
+    {
+      "source": 4,
+      "target": 20,
+      "color": "WALK"
+    },
+    {
+      "source": 4,
+      "target": 21,
+      "color": "WALK"
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "color": "WALK"
+    },
+    {
+      "source": 5,
+      "target": 21,
+      "color": "WALK"
+    },
+    {
+      "source": 5,
+      "target": 22,
+      "color": "WALK"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "color": "WALK"
+    },
+    {
+      "source": 6,
+      "target": 22,
+      "color": "WALK"
+    },
+    {
+      "source": 6,
+      "target": 23,
+      "color": "WALK"
+    },
+    {
+      "source": 6,
+      "target": 38,
+      "color": "WALK"
+    },
+    {
+      "source": 7,
+      "target": 18,
+      "color": "WALK"
+    },
+    {
+      "source": 7,
+      "target": 22,
+      "color": "WALK"
+    },
+    {
+      "source": 7,
+      "target": 23,
+      "color": "WALK"
+    },
+    {
+      "source": 7,
+      "target": 38,
+      "color": "WALK"
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "color": "WALK"
+    },
+    {
+      "source": 8,
+      "target": 11,
+      "color": "WALK"
+    },
+    {
+      "source": 8,
+      "target": 12,
+      "color": "WALK"
+    },
+    {
+      "source": 8,
+      "target": 13,
+      "color": "WALK"
+    },
+    {
+      "source": 8,
+      "target": 29,
+      "color": "WALK"
+    },
+    {
+      "source": 8,
+      "target": 30,
+      "color": "WALK"
+    },
+    {
+      "source": 8,
+      "target": 31,
+      "color": "WALK"
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "color": "WALK"
+    },
+    {
+      "source": 9,
+      "target": 13,
+      "color": "WALK"
+    },
+    {
+      "source": 9,
+      "target": 14,
+      "color": "WALK"
+    },
+    {
+      "source": 9,
+      "target": 19,
+      "color": "WALK"
+    },
+    {
+      "source": 9,
+      "target": 25,
+      "color": "WALK"
+    },
+    {
+      "source": 9,
+      "target": 30,
+      "color": "WALK"
+    },
+    {
+      "source": 9,
+      "target": 31,
+      "color": "WALK"
+    },
+    {
+      "source": 9,
+      "target": 32,
+      "color": "WALK"
+    },
+    {
+      "source": 10,
+      "target": 12,
+      "color": "WALK"
+    },
+    {
+      "source": 10,
+      "target": 14,
+      "color": "WALK"
+    },
+    {
+      "source": 10,
+      "target": 19,
+      "color": "WALK"
+    },
+    {
+      "source": 10,
+      "target": 24,
+      "color": "WALK"
+    },
+    {
+      "source": 11,
+      "target": 12,
+      "color": "WALK"
+    },
+    {
+      "source": 11,
+      "target": 29,
+      "color": "WALK"
+    },
+    {
+      "source": 11,
+      "target": 30,
+      "color": "WALK"
+    },
+    {
+      "source": 11,
+      "target": 31,
+      "color": "WALK"
+    },
+    {
+      "source": 12,
+      "target": 13,
+      "color": "WALK"
+    },
+    {
+      "source": 12,
+      "target": 24,
+      "color": "WALK"
+    },
+    {
+      "source": 12,
+      "target": 29,
+      "color": "WALK"
+    },
+    {
+      "source": 12,
+      "target": 30,
+      "color": "WALK"
+    },
+    {
+      "source": 12,
+      "target": 31,
+      "color": "WALK"
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "color": "WALK"
+    },
+    {
+      "source": 13,
+      "target": 24,
+      "color": "WALK"
+    },
+    {
+      "source": 13,
+      "target": 30,
+      "color": "WALK"
+    },
+    {
+      "source": 13,
+      "target": 31,
+      "color": "WALK"
+    },
+    {
+      "source": 14,
+      "target": 15,
+      "color": "WALK"
+    },
+    {
+      "source": 14,
+      "target": 19,
+      "color": "WALK"
+    },
+    {
+      "source": 14,
+      "target": 32,
+      "color": "WALK"
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "color": "WALK"
+    },
+    {
+      "source": 15,
+      "target": 20,
+      "color": "WALK"
+    },
+    {
+      "source": 15,
+      "target": 25,
+      "color": "WALK"
+    },
+    {
+      "source": 15,
+      "target": 26,
+      "color": "WALK"
+    },
+    {
+      "source": 15,
+      "target": 32,
+      "color": "WALK"
+    },
+    {
+      "source": 15,
+      "target": 33,
+      "color": "WALK"
+    },
+    {
+      "source": 15,
+      "target": 34,
+      "color": "WALK"
+    },
+    {
+      "source": 15,
+      "target": 37,
+      "color": "WALK"
+    },
+    {
+      "source": 15,
+      "target": 39,
+      "color": "WALK"
+    },
+    {
+      "source": 16,
+      "target": 17,
+      "color": "WALK"
+    },
+    {
+      "source": 16,
+      "target": 37,
+      "color": "WALK"
+    },
+    {
+      "source": 17,
+      "target": 18,
+      "color": "WALK"
+    },
+    {
+      "source": 17,
+      "target": 28,
+      "color": "WALK"
+    },
+    {
+      "source": 18,
+      "target": 28,
+      "color": "WALK"
+    },
+    {
+      "source": 18,
+      "target": 38,
+      "color": "WALK"
+    },
+    {
+      "source": 19,
+      "target": 20,
+      "color": "WALK"
+    },
+    {
+      "source": 20,
+      "target": 21,
+      "color": "WALK"
+    },
+    {
+      "source": 20,
+      "target": 24,
+      "color": "WALK"
+    },
+    {
+      "source": 21,
+      "target": 22,
+      "color": "WALK"
+    },
+    {
+      "source": 21,
+      "target": 37,
+      "color": "WALK"
+    },
+    {
+      "source": 22,
+      "target": 23,
+      "color": "WALK"
+    },
+    {
+      "source": 22,
+      "target": 37,
+      "color": "WALK"
+    },
+    {
+      "source": 22,
+      "target": 38,
+      "color": "WALK"
+    },
+    {
+      "source": 23,
+      "target": 38,
+      "color": "WALK"
+    },
+    {
+      "source": 26,
+      "target": 27,
+      "color": "WALK"
+    },
+    {
+      "source": 26,
+      "target": 33,
+      "color": "WALK"
+    },
+    {
+      "source": 26,
+      "target": 34,
+      "color": "WALK"
+    },
+    {
+      "source": 26,
+      "target": 39,
+      "color": "WALK"
+    },
+    {
+      "source": 27,
+      "target": 28,
+      "color": "WALK"
+    },
+    {
+      "source": 27,
+      "target": 37,
+      "color": "WALK"
+    },
+    {
+      "source": 29,
+      "target": 30,
+      "color": "WALK"
+    },
+    {
+      "source": 29,
+      "target": 31,
+      "color": "WALK"
+    },
+    {
+      "source": 30,
+      "target": 31,
+      "color": "WALK"
+    },
+    {
+      "source": 33,
+      "target": 34,
+      "color": "WALK"
+    },
+    {
+      "source": 33,
+      "target": 35,
+      "color": "WALK"
+    },
+    {
+      "source": 33,
+      "target": 37,
+      "color": "WALK"
+    },
+    {
+      "source": 33,
+      "target": 39,
+      "color": "WALK"
+    },
+    {
+      "source": 34,
+      "target": 35,
+      "color": "WALK"
+    },
+    {
+      "source": 34,
+      "target": 36,
+      "color": "WALK"
+    },
+    {
+      "source": 34,
+      "target": 39,
+      "color": "WALK"
+    },
+    {
+      "source": 35,
+      "target": 39,
+      "color": "WALK"
+    },
+    {
+      "source": 36,
+      "target": 37,
+      "color": "WALK"
+    },
+    {
+      "source": 37,
+      "target": 39,
+      "color": "WALK"
+    },
+    {
+      "source": 0,
+      "target": 1,
+      "color": "Red"
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "color": "Red"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "color": "Red"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "color": "Red"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "color": "Red"
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "color": "Red"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "color": "Red"
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "color": "Red"
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "color": "Red"
+    },
+    {
+      "source": 2,
+      "target": 10,
+      "color": "Red"
+    },
+    {
+      "source": 9,
+      "target": 19,
+      "color": "Blue"
+    },
+    {
+      "source": 9,
+      "target": 25,
+      "color": "Green"
+    },
+    {
+      "source": 9,
+      "target": 30,
+      "color": "Green"
+    },
+    {
+      "source": 9,
+      "target": 31,
+      "color": "Brown"
+    },
+    {
+      "source": 9,
+      "target": 32,
+      "color": "Brown"
+    },
+    {
+      "source": 11,
+      "target": 12,
+      "color": "Yellow"
+    },
+    {
+      "source": 12,
+      "target": 13,
+      "color": "Yellow"
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "color": "Yellow"
+    },
+    {
+      "source": 14,
+      "target": 15,
+      "color": "Yellow"
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "color": "Yellow"
+    },
+    {
+      "source": 15,
+      "target": 25,
+      "color": "Green"
+    },
+    {
+      "source": 15,
+      "target": 26,
+      "color": "Green"
+    },
+    {
+      "source": 15,
+      "target": 32,
+      "color": "Brown"
+    },
+    {
+      "source": 15,
+      "target": 33,
+      "color": "Brown"
+    },
+    {
+      "source": 16,
+      "target": 17,
+      "color": "Yellow"
+    },
+    {
+      "source": 17,
+      "target": 18,
+      "color": "Yellow"
+    },
+    {
+      "source": 18,
+      "target": 28,
+      "color": "Green"
+    },
+    {
+      "source": 19,
+      "target": 20,
+      "color": "Blue"
+    },
+    {
+      "source": 20,
+      "target": 21,
+      "color": "Blue"
+    },
+    {
+      "source": 20,
+      "target": 24,
+      "color": "Blue"
+    },
+    {
+      "source": 21,
+      "target": 22,
+      "color": "Blue"
+    },
+    {
+      "source": 22,
+      "target": 23,
+      "color": "Blue"
+    },
+    {
+      "source": 22,
+      "target": 37,
+      "color": "Orange"
+    },
+    {
+      "source": 22,
+      "target": 38,
+      "color": "Orange"
+    },
+    {
+      "source": 26,
+      "target": 27,
+      "color": "Green"
+    },
+    {
+      "source": 27,
+      "target": 28,
+      "color": "Green"
+    },
+    {
+      "source": 29,
+      "target": 30,
+      "color": "Green"
+    },
+    {
+      "source": 33,
+      "target": 34,
+      "color": "Brown"
+    },
+    {
+      "source": 34,
+      "target": 35,
+      "color": "Orange"
+    },
+    {
+      "source": 34,
+      "target": 36,
+      "color": "Orange"
+    },
+    {
+      "source": 36,
+      "target": 37,
+      "color": "Orange"
+    },
+    {
+      "source": 37,
+      "target": 39,
+      "color": "Orange"
+    }
+  ]
+}

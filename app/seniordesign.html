@@ -6,15 +6,11 @@
     <meta name="viewport" content="width=device-width">
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/sigma.min.js"></script>
-    <script src="scripts/sigma.renderers.edgeLabels.min.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/font-awesome.min.css">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="shortcut icon" href="../images/taPic.png">
     <link rel="stylesheet" href="styles/seniordesign.css">
-    <script src="http://visjs.org/dist/vis.js"></script>
-    <link href="http://visjs.org/dist/vis.css" rel="stylesheet" type="text/css" />
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="scripts/plot.js"></script>
 
@@ -75,6 +71,9 @@
         border: 1px solid #95001a;
         border-radius: 4px;
       }
+      text {
+        font-weight: 300;
+      }
       /*#network {
         height:100vh;
       }*/
@@ -97,33 +96,76 @@
         <div class="collapse navbar-collapse" id="navbar">
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="newyork.html">MTA Employee</a></li>
+            <li><a href="seniordesign.html">MTA Employee</a></li>
             <li><a href="newyork.html">Subway Rider</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <header class="background" id="page-top">
+    <header id="page-top">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="intro-text">
-              <div id="headerShadow">
-                <p class="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt risus dui, ac tristique dui tristique eget. Morbi enim massa, suscipit eget velit et, feugiat mollis quam. Integer posuere interdum metus ac dapibus. Praesent sollicitudin massa sed odio gravida elementum non vitae metus. Suspendisse potenti. Proin fermentum dolor neque, non iaculis enim placerat id. Vestibulum efficitur, nunc quis semper vulputate, nisl dui placerat arcu, quis pellentesque lorem justo sed diam. Donec aliquam libero ac mauris egestas auctor. Nulla faucibus tortor ut tempor luctus. Cras at aliquam purus, ut porttitor metus.</p>
-              </div>
-            </div>
+            <p>To generate a maintenance set that contains a specific piece of track between two stations, click on the first station then SHIFT+click on the adjacent station. Then press “Generate Maintenance Sets.” The resulting tracks will be highlighted in black.</p>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- <p id="errorMessage"></p> -->
+    <div class="background"></div>
+    <div class="overlay"></div>
 
-    <div align='center' id="d3_selectable_force_directed_graph"></div>
+    <div class="container">
+      <!-- <p id="errorMessage"></p> -->
+      <div align='center' id="d3_selectable_force_directed_graph"></div>
 
-    <div class="row center" id="stackButton">
-      <a class="btn-geckoboard btn-outline btn-lg href" onclick="runAlgorithm()">Generate Maintenance Sets</a>
+      <p id="values"></p>
+
+<!--       <div class="wrapper typo">C value:
+          <div class="list"><span class="placeholder">select</span>
+              <ul class="list__ul">
+                  <li><a>1.25</a></li>
+                  <li><a>1.5</a></li>
+                  <li><a>1.75</a></li>
+              </ul>
+          </div>
+      </div> -->
+
+      <script>
+        // var el = {};
+
+        // $('.placeholder').on('click', function (ev) {
+        //   $('.placeholder').css('opacity', '0');
+        //   $('.list__ul').toggle();
+        // });
+
+        //  $('.list__ul a').on('click', function (ev) {
+        //    ev.preventDefault();
+        //    var index = $(this).parent().index();
+           
+        //    $('.placeholder').text( $(this).text() ).css('opacity', '1');
+                      
+        //    $('.list__ul').find('li').eq(index).prependTo('.list__ul');
+        //    $('.list__ul').toggle();   
+           
+        //  });
+
+
+        // $('select').on('change', function (e) {
+          
+        //   // Set text on placeholder hidden element
+        //   $('.placeholder').text(this.value);
+          
+        //   // Animate select width as placeholder
+        //   $(this).animate({width: $('.placeholder').width() + 'px' });
+          
+        // });
+      </script>
+
+      <div class="row center" id="stackButton">
+        <a class="btn-geckoboard btn-outline btn-lg href" onclick="runAlgorithm()">Generate Maintenance Sets</a>
+      </div>
     </div>
 
     <footer>
