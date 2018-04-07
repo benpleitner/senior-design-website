@@ -13,11 +13,11 @@ for (var i = 0; i < 40; i++) {
         graphWithWalking[i][j] = Infinity;
     }
 }
+var maintainedEdges = [];
 
 /*
 TODO:
 Fix checks about neighboring nodes
-Get edge weights for graph
 */
 
 function runAlgorithm() {
@@ -41,6 +41,14 @@ function assignLinkClass(link, graph) {
     var maintainCount = 0;
     link = link.data(graph.links).enter().append("line")
     .attr("class", function(d) {
+        for (var i = 0; i < maintainedEdges.length; i++) {
+            var tracks = maintainedEdges[i].split(",");
+            if ((d.source["id"] == tracks[0] && d.target["id"] == tracks[1]) ||
+                (d.source["id"] == tracks[1] && d.target["id"] == tracks[0])) {
+                return "link-maintain";
+            }
+        }
+
         if (edges[d.source["id"]][d.target["id"]] != undefined) {
             if (d.color == "WALK") {
                 maintainCount++;
@@ -51,17 +59,17 @@ function assignLinkClass(link, graph) {
             }
         }
 
-        if (d.color === "Blue") {
+        if (d.color === "BLUE") {
             return "link-blue";
-        } else if (d.color === "Red") {
+        } else if (d.color === "RED") {
             return "link-red";
-        } else if (d.color === "Green") {
+        } else if (d.color === "GREEN") {
             return "link-green";
-        } else if (d.color === "Orange") {
+        } else if (d.color === "ORANGE") {
             return "link-orange";
-        } else if (d.color === "Yellow") {
+        } else if (d.color === "YELLOW") {
             return "link-yellow";
-        } else if (d.color === "Brown") {
+        } else if (d.color === "BROWN") {
             return "link-brown";
         } else if (d.color === "WALK") {
             return "link-walk";
@@ -137,6 +145,9 @@ function constructPath(shortestPathInfo) {
 }
 
 function selectableForceDirectedGraph() {
+    $.get("scripts/maintenance.txt", function(d) {
+        maintainedEdges = d.split("\n");
+    });
     var width = 740,
     height = 720,
     shiftKey, ctrlKey;
@@ -321,8 +332,12 @@ function selectableForceDirectedGraph() {
             // console.log("source: " + d.source + ", target: " + d.target);
             if (graphWithWalking[d.source][d.target] === Infinity &&
                 graphWithWalking[d.target][d.source] === Infinity) {
-                graphWithWalking[d.source][d.target] = 1;
-                graphWithWalking[d.target][d.source] = 1;
+                graphWithWalking[d.source][d.target] = d.weight;
+                graphWithWalking[d.target][d.source] = d.weight;
+            } else if (d.weight < graphWithWalking[d.source][d.target]) {
+                // console.log(d);
+                graphWithWalking[d.source][d.target] = d.weight;
+                graphWithWalking[d.target][d.source] = d.weight;
             }
             d.source = graph.nodes[d.source];
             d.target = graph.nodes[d.target];

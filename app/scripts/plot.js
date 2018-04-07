@@ -56,7 +56,10 @@ function assignLinkClass(link, graph) {
     .attr("x1", function(d) { return d.source.x; })
     .attr("y1", function(d) { return d.source.y; })
     .attr("x2", function(d) { return d.target.x; })
-    .attr("y2", function(d) { return d.target.y; });
+    .attr("y2", function(d) { return d.target.y; })
+    .on("click", function() {
+        console.log("CLICK");
+    });
 
     if (!firstTime) {
         // TODO: Display error message - Nodes must be adjacent
