@@ -7,6 +7,8 @@ var selectedEdge = "";
 var globalLink;
 var globalGraph;
 var firstTime = true;
+var posToIdMap = {};
+var edgeToColorMap = {};
 
 function runAlgorithm() {
     if (selectedCount == 2) {
@@ -58,7 +60,16 @@ function assignLinkClass(link, graph) {
     .attr("x2", function(d) { return d.target.x; })
     .attr("y2", function(d) { return d.target.y; })
     .on("click", function() {
-        console.log("CLICK");
+        var pos0 = $(this).attr('x1') + "," + $(this).attr('y1');
+        var pos1 = $(this).attr('x2') + "," + $(this).attr('y2');
+        var edge = pos0 + "-" + pos1;
+        if ($(this).attr("class") === "link-selected") {
+            $(this).attr("class", edgeToColorMap[edge]);
+        } else {
+            edgeToColorMap[edge] = $(this).attr("class");
+            $(this).attr("class", "link-selected");
+            // console.log("EDGE: " + posToIdMap[pos0] + "," + posToIdMap[pos1]);
+        }
     });
 
     if (!firstTime) {
@@ -287,9 +298,10 @@ function selectableForceDirectedGraph() {
         nodeGraph = graph;
         // console.log(node);
 
-        // graph.nodes.forEach(function(d) {
-        //     console.log(d);
-        // })
+        graph.nodes.forEach(function(d) {
+            var pos = d.x + "," + d.y;
+            posToIdMap[pos] = d.id;
+        })
 
         graph.links.forEach(function(d) {
             d.source = graph.nodes[d.source];
