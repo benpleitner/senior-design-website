@@ -65,6 +65,8 @@ function assignLinkClass(link, graph) {
         var edge = pos0 + "-" + pos1;
         if ($(this).attr("class") === "link-selected") {
             $(this).attr("class", edgeToColorMap[edge]);
+            delete edgeToColorMap[edge];
+            console.log(edgeToColorMap);
         } else {
             edgeToColorMap[edge] = $(this).attr("class");
             $(this).attr("class", "link-selected");
