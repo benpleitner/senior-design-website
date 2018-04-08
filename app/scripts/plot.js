@@ -12,6 +12,8 @@ var edgeToColorMap = {};
 var isMaintenanceSetComputed = false;
 var prevClass = "";
 var prevLine;
+var edgeToOrigColor = {};
+var edgeToItemObj = {};
 
 function runAlgorithm() {
     if (selectedEdge != "") {
@@ -26,6 +28,7 @@ function runAlgorithm() {
 
 function assignLinkClass(link, graph) {
     var maintainCount = 0;
+
     link = link.data(graph.links).enter().append("line")
     .attr("class", function(d) {
         if (edges[d.source["id"]][d.target["id"]] != undefined) {
@@ -69,13 +72,13 @@ function assignLinkClass(link, graph) {
             var pos0 = $(this).attr('x1') + "," + $(this).attr('y1');
             var pos1 = $(this).attr('x2') + "," + $(this).attr('y2');
             var edge = pos0 + "-" + pos1;
-            if ($(this).attr("class") === "link-selected") {
-                $(this).attr("class", edgeToColorMap[edge]);
+            if ($(this).attr("class") === "link-maintain") {
+                $(this).attr("class", edgeToOrigColor[edge]);
                 delete edgeToColorMap[edge];
                 console.log(edgeToColorMap);
             } else {
                 edgeToColorMap[edge] = $(this).attr("class");
-                $(this).attr("class", "link-selected");
+                $(this).attr("class", "link-maintain");
                 // console.log("EDGE: " + posToIdMap[pos0] + "," + posToIdMap[pos1]);
             }
         } else {
@@ -92,11 +95,30 @@ function assignLinkClass(link, graph) {
         }
     });
 
-    if (!firstTime) {
-        // TODO: Display error message - Nodes must be adjacent
-        // console.log("HERE");
-    } else {
+    if (firstTime) {
         firstTime = false;
+        var children = link[0].parentNode.childNodes;
+        var count = 0;
+        for (var item of children.entries()) {
+            var pos0 = item[1].attributes[1].nodeValue + "," + item[1].attributes[2].nodeValue;
+            var pos1 = item[1].attributes[3].nodeValue + "," + item[1].attributes[4].nodeValue;
+            var edge = pos0 + "-" + pos1;
+            edgeToOrigColor[edge] = item[1].classList[0];
+            edgeToItemObj[edge] = item[1];
+            count++;
+        }
+    }
+
+    if (isMaintenanceSetComputed) {
+        var children = link[0].parentNode.childNodes;
+        for (var item of children.entries()) {
+            var pos0 = item[1].attributes[1].nodeValue + "," + item[1].attributes[2].nodeValue;
+            var pos1 = item[1].attributes[3].nodeValue + "," + item[1].attributes[4].nodeValue;
+            var edge = pos0 + "-" + pos1;
+            if (item[1].classList[0] === "link-maintain") {
+                edgeToColorMap[edge] = "link";
+            }
+        }
     }
 }
 
