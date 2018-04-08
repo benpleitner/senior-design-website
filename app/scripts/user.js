@@ -45,6 +45,8 @@ function assignLinkClass(link, graph) {
             var tracks = maintainedEdges[i].split(",");
             if ((d.source["id"] == tracks[0] && d.target["id"] == tracks[1]) ||
                 (d.source["id"] == tracks[1] && d.target["id"] == tracks[0])) {
+                graphWithWalking[d.source["id"]][d.target["id"]] = Infinity;
+                graphWithWalking[d.target["id"]][d.source["id"]] = Infinity;
                 return "link-maintain";
             }
         }
