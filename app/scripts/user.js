@@ -145,9 +145,8 @@ function constructPath(shortestPathInfo) {
 }
 
 function selectableForceDirectedGraph() {
-    $.get("scripts/maintenance.txt", function(d) {
-        maintainedEdges = d.split("\n");
-    });
+    console.log(document.cookie);
+    maintainedEdges = document.cookie.split("; ")[1].split("-");
     var width = 740,
     height = 720,
     shiftKey, ctrlKey;

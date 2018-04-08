@@ -123,6 +123,18 @@ function generateMaintenanceSets() {
     });
 }
 
+function writeCookie() {
+    var str = "";
+    for (var key in edgeToColorMap) {
+        var pos0 = key.split("-")[0];
+        var pos1 = key.split("-")[1];
+        str+= posToIdMap[pos0] + "," + posToIdMap[pos1] + "-";
+    }
+    str = str.slice(0, -1);
+    document.cookie = str;
+    console.log(document.cookie);
+}
+
 function selectableForceDirectedGraph() {
     var width = 740,
     height = 720,
