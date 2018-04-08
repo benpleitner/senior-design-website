@@ -9,13 +9,18 @@ var globalGraph;
 var firstTime = true;
 var posToIdMap = {};
 var edgeToColorMap = {};
+var isMaintenanceSetComputed = false;
+var prevClass = "";
+var prevLine;
 
 function runAlgorithm() {
-    if (selectedCount == 2) {
+    if (selectedEdge != "") {
         generateMaintenanceSets();
     } else {
-        // TODO: Display message
-        console.log("HERE");
+        document.getElementById("overlay").style.visibility = "visible";
+        document.getElementById("overlay").style.opacity = "1";
+        // TODO: Edit text
+        $("#pop-up-content").text("You must select a track in order to generate a maintenance set.");
     }
 }
 
@@ -60,29 +65,43 @@ function assignLinkClass(link, graph) {
     .attr("x2", function(d) { return d.target.x; })
     .attr("y2", function(d) { return d.target.y; })
     .on("click", function() {
-        var pos0 = $(this).attr('x1') + "," + $(this).attr('y1');
-        var pos1 = $(this).attr('x2') + "," + $(this).attr('y2');
-        var edge = pos0 + "-" + pos1;
-        if ($(this).attr("class") === "link-selected") {
-            $(this).attr("class", edgeToColorMap[edge]);
-            delete edgeToColorMap[edge];
-            console.log(edgeToColorMap);
+        if (isMaintenanceSetComputed) {
+            var pos0 = $(this).attr('x1') + "," + $(this).attr('y1');
+            var pos1 = $(this).attr('x2') + "," + $(this).attr('y2');
+            var edge = pos0 + "-" + pos1;
+            if ($(this).attr("class") === "link-selected") {
+                $(this).attr("class", edgeToColorMap[edge]);
+                delete edgeToColorMap[edge];
+                console.log(edgeToColorMap);
+            } else {
+                edgeToColorMap[edge] = $(this).attr("class");
+                $(this).attr("class", "link-selected");
+                // console.log("EDGE: " + posToIdMap[pos0] + "," + posToIdMap[pos1]);
+            }
         } else {
-            edgeToColorMap[edge] = $(this).attr("class");
-            $(this).attr("class", "link-selected");
-            // console.log("EDGE: " + posToIdMap[pos0] + "," + posToIdMap[pos1]);
+            if (selectedEdge != "") {
+                prevLine.attr("class", prevClass);
+            }
+
+            var pos0 = $(this).attr('x1') + "," + $(this).attr('y1');
+            var pos1 = $(this).attr('x2') + "," + $(this).attr('y2');
+            selectedEdge = posToIdMap[pos0] + "," + posToIdMap[pos1];
+            prevClass = $(this).attr("class");
+            prevLine = $(this);
+            $(this).attr("class", "track-selected");
         }
     });
 
     if (!firstTime) {
         // TODO: Display error message - Nodes must be adjacent
-        console.log("HERE");
+        // console.log("HERE");
     } else {
         firstTime = false;
     }
 }
 
 function generateMaintenanceSets() {
+    isMaintenanceSetComputed = true;
     $.get('scripts/allMaintenanceSets.txt', function(d) {
         var lines = d.split("\n");
         var c = lines[0].split(",")[0];
@@ -230,9 +249,9 @@ function selectableForceDirectedGraph() {
 
     brush.call(brusher)
     .on("mousedown.brush", function(d) {
-        selectedCount = 0;
-        selectedEdge = "";
-        console.log(selectedCount);
+        // selectedCount = 0;
+        // selectedEdge = "";
+        // console.log(selectedCount);
     })
     .on("touchstart.brush", null) 
     .on("touchmove.brush", null)
@@ -393,19 +412,19 @@ function selectableForceDirectedGraph() {
                     return p.selected = p.previouslySelected = false;
                 })
                 selectedCount = 0;
-                selectedEdge = "";
+                // selectedEdge = "";
             }
 
             // Always select this node
             // d3.select(this).classed("selected", d.selected = !d.previouslySelected);
             d3.select(this).classed("selected", function(p) {
-                if (selectedCount == 0) {
-                    selectedEdge = "";
-                    selectedEdge += p["id"];
-                } else if (selectedCount = 1) {
-                    selectedEdge += "," + p["id"];
-                    console.log(selectedEdge);
-                }
+                // if (selectedCount == 0) {
+                //     selectedEdge = "";
+                //     selectedEdge += p["id"];
+                // } else if (selectedCount = 1) {
+                //     selectedEdge += "," + p["id"];
+                //     console.log(selectedEdge);
+                // }
                 return d.selected = !d.previouslySelected;
             })
             selectedCount++;
@@ -472,9 +491,9 @@ function selectableForceDirectedGraph() {
 
         brush.call(brusher)
         .on("mousedown.brush", function() {
-            selectedCount = 0;
-            selectedEdge = "";
-            console.log(selectedCount);
+            // selectedCount = 0;
+            // selectedEdge = "";
+            // console.log(selectedCount);
         })
         .on("touchstart.brush", null)                                                                      
         .on("touchmove.brush", null)                                                                       

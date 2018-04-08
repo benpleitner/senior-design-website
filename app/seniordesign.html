@@ -63,6 +63,10 @@
         stroke: #95001a;
         stroke-width: 6px;
       }
+      .track-selected {
+        stroke: gray;
+        stroke-width: 6px;
+      }
       .brush .extent {
         fill-opacity: .1;
         stroke: #fff;
@@ -82,11 +86,10 @@
         height:100vh;
       }*/
     </style>
+
   </head>
   <body>
-
-
-<nav class="navbar navbar-default navbar-myPage navbar-static-top">
+    <nav class="navbar navbar-default navbar-myPage navbar-static-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -117,17 +120,25 @@
       </div>
     </header>
 
-    <div class="background"></div>
-    <div class="overlay"></div>
+    <!-- <div class="background"></div> -->
+    <!-- <div class="overlay"></div> -->
 
     <div class="container">
+      <div id="overlay">
+        <div class="popup">
+          <span class="close">&times;</span>
+          <div id="pop-up-content">
+            Thank to pop me out of that button, but now i'm done so you can close this window.
+          </div>
+        </div>
+      </div>
       <!-- <p id="errorMessage"></p> -->
       <div align='center' id="d3_selectable_force_directed_graph"></div>
 
       <p id="values"></p>
 
       <div class="row center" id="stackButton">
-        <a class="btn-geckoboard btn-outline btn-lg href" onclick="runAlgorithm()">Generate Maintenance Sets</a>
+        <a class="btn-geckoboard btn-outline btn-lg href" onclick="runAlgorithm()">Generate Maintenance Set</a>
       </div>
 
       <div class="row center" id="stackButton">
@@ -140,5 +151,11 @@
     </footer>
 
     <script>selectableForceDirectedGraph();</script>
+    <script>
+      $(".close").on("click", function() {
+        document.getElementById("overlay").style.visibility = "hidden";
+        document.getElementById("overlay").style.opacity = "0";
+      });
+    </script>
   </body>
 </html>

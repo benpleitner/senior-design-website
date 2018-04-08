@@ -31,6 +31,7 @@ function runAlgorithm() {
             prev = path[i];
         }
         assignLinkClass(globalLink, globalGraph);
+        $('#values').text("Original trip length: " + 10 + ", Current trip length: " + 10);
     } else {
         // TODO: Display message
         console.log("HERE");
@@ -148,7 +149,11 @@ function constructPath(shortestPathInfo) {
 
 function selectableForceDirectedGraph() {
     console.log(document.cookie);
-    maintainedEdges = document.cookie.split("; ")[1].split("-");
+    if (document.cookie.split("; ")[1] != undefined) {
+        maintainedEdges = document.cookie.split("; ")[1].split("-");
+    } else {
+        maintainedEdges = document.cookie.split("-");
+    }
     var width = 740,
     height = 720,
     shiftKey, ctrlKey;
