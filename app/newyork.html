@@ -117,10 +117,18 @@
       </div>
     </header>
 
-    <div class="background"></div>
-    <div class="overlay"></div>
+    <!-- <div class="background"></div> -->
+    <!-- <div class="overlay"></div> -->
 
     <div class="container">
+      <div id="overlay">
+        <div class="popup">
+          <span class="close">&times;</span>
+          <div id="pop-up-content">
+            Thank to pop me out of that button, but now i'm done so you can close this window.
+          </div>
+        </div>
+      </div>
       <!-- <p id="errorMessage"></p> -->
       <div align='center' id="d3_selectable_force_directed_graph"></div>
 
@@ -136,5 +144,11 @@
     </footer>
 
     <script>selectableForceDirectedGraph();</script>
+    <script>
+      $(".close").on("click", function() {
+        document.getElementById("overlay").style.visibility = "hidden";
+        document.getElementById("overlay").style.opacity = "0";
+      });
+    </script>
   </body>
 </html>

@@ -118,6 +118,10 @@ header {
     text-decoration: none;
 }
 
+#button1 {
+  visibility: hidden;
+}
+
 /* Error message */
 #errorMessage {
   color: red;

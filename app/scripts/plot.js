@@ -18,6 +18,8 @@ var edgeToItemObj = {};
 function runAlgorithm() {
     if (selectedEdge != "") {
         generateMaintenanceSets();
+        document.getElementById("button0").style.visibility = "hidden";
+        document.getElementById("button1").style.visibility = "visible";
     } else {
         document.getElementById("overlay").style.visibility = "visible";
         document.getElementById("overlay").style.opacity = "1";

@@ -33,8 +33,10 @@ function runAlgorithm() {
         assignLinkClass(globalLink, globalGraph);
         $('#values').text("Original trip length: " + 10 + ", Current trip length: " + 10);
     } else {
-        // TODO: Display message
-        console.log("HERE");
+        document.getElementById("overlay").style.visibility = "visible";
+        document.getElementById("overlay").style.opacity = "1";
+        // TODO: Edit text
+        $("#pop-up-content").text("You must have exactly two stations selected in order to get directions.");
     }
 }
 
@@ -62,17 +64,17 @@ function assignLinkClass(link, graph) {
             }
         }
 
-        if (d.color === "BLUE") {
+        if (d.color === "Blue") {
             return "link-blue";
-        } else if (d.color === "RED") {
+        } else if (d.color === "Red") {
             return "link-red";
-        } else if (d.color === "GREEN") {
+        } else if (d.color === "Green") {
             return "link-green";
-        } else if (d.color === "ORANGE") {
+        } else if (d.color === "Orange") {
             return "link-orange";
-        } else if (d.color === "YELLOW") {
+        } else if (d.color === "Yellow") {
             return "link-yellow";
-        } else if (d.color === "BROWN") {
+        } else if (d.color === "Brown") {
             return "link-brown";
         } else if (d.color === "WALK") {
             return "link-walk";
