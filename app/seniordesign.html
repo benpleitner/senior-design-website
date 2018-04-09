@@ -82,9 +82,6 @@
       text {
         font-weight: 300;
       }
-      /*#network {
-        height:100vh;
-      }*/
     </style>
 
   </head>
@@ -120,9 +117,6 @@
       </div>
     </header>
 
-    <!-- <div class="background"></div> -->
-    <!-- <div class="overlay"></div> -->
-
     <div class="container">
       <div id="overlay">
         <div class="popup">
@@ -132,10 +126,43 @@
           </div>
         </div>
       </div>
-      <!-- <p id="errorMessage"></p> -->
       <div align='center' id="d3_selectable_force_directed_graph"></div>
 
       <p id="values"></p>
+
+      <div class="row dropdowns">
+        <div class="col-sm-6">
+          <span class="choose">Choose C-Value</span>
+          <div class="dropdown">
+            <div class="select">
+              <span>Select C-Value</span>
+              <i class="fa fa-chevron-left"></i>
+            </div>
+            <input type="hidden" name="c-val">
+            <ul class="dropdown-menu">
+              <li id="1.25">1.25</li>
+              <li id="1.5">1.5</li>
+              <li id="1.25">1.75</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <span class="choose">Choose D-Value</span>
+          <div class="dropdown">
+            <div class="select">
+              <span>Select D-Value</span>
+              <i class="fa fa-chevron-left"></i>
+            </div>
+            <input type="hidden" name="d-val">
+            <ul class="dropdown-menu">
+              <li id="5">5</li>
+              <li id="10">10</li>
+              <li id="15">15</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <div class="row center" id="stackButton button0">
         <a class="btn-geckoboard btn-outline btn-lg href" id="button0" onclick="runAlgorithm()">Generate Maintenance Set</a>
@@ -157,6 +184,26 @@
       $(".close").on("click", function() {
         document.getElementById("overlay").style.visibility = "hidden";
         document.getElementById("overlay").style.opacity = "0";
+      });
+
+      $('.dropdown').click(function () {
+        $(this).attr('tabindex', 1).focus();
+        $(this).toggleClass('active');
+        $(this).find('.dropdown-menu').slideToggle(300);
+      });
+      $('.dropdown').focusout(function () {
+        $(this).removeClass('active');
+        $(this).find('.dropdown-menu').slideUp(300);
+      });
+      $('.dropdown .dropdown-menu li').click(function () {
+        $(this).parents('.dropdown').find('span').text($(this).text());
+        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+      });
+
+      $('.dropdown-menu li').click(function () {
+        var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
+            msg = '<span class="msg">Hidden input value: ';
+        $('.msg').html(msg + input + '</span>');
       });
     </script>
   </body>
