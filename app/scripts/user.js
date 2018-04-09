@@ -14,11 +14,15 @@ for (var i = 0; i < 40; i++) {
     }
 }
 var maintainedEdges = [];
-
-/*
-TODO:
-Fix checks about neighboring nodes
-*/
+var currentPathLength = 0;
+var originalPathLength = 0;
+var originalGraph = [];
+for (var i = 0; i < 40; i++) {
+    originalGraph[i] = [];
+    for (var j = 0; j < 40; j++) {
+        originalGraph[i][j] = Infinity;
+    }
+}
 
 function runAlgorithm() {
     if (selectedCount == 2) {
@@ -31,7 +35,8 @@ function runAlgorithm() {
             prev = path[i];
         }
         assignLinkClass(globalLink, globalGraph);
-        $('#values').text("Original trip length: " + 10 + ", Current trip length: " + 10);
+        constructPathOriginal(dijkstraOriginal());
+        $('#values').text("Original trip length: " + originalPathLength + ", Current trip length: " + currentPathLength);
     } else {
         document.getElementById("overlay").style.visibility = "visible";
         document.getElementById("overlay").style.opacity = "1";
@@ -64,17 +69,17 @@ function assignLinkClass(link, graph) {
             }
         }
 
-        if (d.color === "Blue") {
+        if (d.color === "BLUE") {
             return "link-blue";
-        } else if (d.color === "Red") {
+        } else if (d.color === "RED") {
             return "link-red";
-        } else if (d.color === "Green") {
+        } else if (d.color === "GREEN") {
             return "link-green";
-        } else if (d.color === "Orange") {
+        } else if (d.color === "ORANGE") {
             return "link-orange";
-        } else if (d.color === "Yellow") {
+        } else if (d.color === "YELLOW") {
             return "link-yellow";
-        } else if (d.color === "Brown") {
+        } else if (d.color === "BROWN") {
             return "link-brown";
         } else if (d.color === "WALK") {
             return "link-walk";
@@ -141,6 +146,66 @@ function dijkstra() {
 function constructPath(shortestPathInfo) {
     var e = selectedEdge.split(",");
     var endVertex = parseInt(e[1]);
+    currentPathLength = shortestPathInfo.pathLengths[endVertex];
+    var path = [];
+    while (endVertex != shortestPathInfo.startVertex) {
+        path.unshift(endVertex);
+        endVertex = shortestPathInfo.predecessors[endVertex];
+    }
+    return path;
+}
+
+function dijkstraOriginal() {
+    console.log(originalGraph);
+    var numVertices = 40;
+    var e = selectedEdge.split(",");
+    var startVertex = parseInt(e[0]);
+    var done = new Array(numVertices);
+    done[startVertex] = true;
+    var pathLengths = new Array(numVertices);
+    var predecessors = new Array(numVertices);
+
+    for (var i = 0; i < numVertices; i++) {
+        pathLengths[i] = originalGraph[startVertex][i];
+        if (originalGraph[startVertex][i] != Infinity) {
+            predecessors[i] = startVertex;
+        }
+    }
+
+    pathLengths[startVertex] = 0;
+
+    for (var i = 0; i < numVertices - 1; i++) {
+        var closest = -1;
+        var closestDistance = Infinity;
+        for (var j = 0; j < numVertices; j++) {
+            if (!done[j] && pathLengths[j] < closestDistance) {
+                closestDistance = pathLengths[j];
+                closest = j;
+            }
+        }
+
+        done[closest] = true;
+
+        for (var j = 0; j < numVertices; j++) {
+            if (!done[j]) {
+                var possiblyCloserDistance = pathLengths[closest] + originalGraph[closest][j];
+                if (possiblyCloserDistance < pathLengths[j]) {
+                    pathLengths[j] = possiblyCloserDistance;
+                    predecessors[j] = closest;
+                }
+            }
+        }
+    }
+
+  return { "startVertex": startVertex,
+           "pathLengths": pathLengths,
+           "predecessors": predecessors };
+}
+
+function constructPathOriginal(shortestPathInfo) {
+    var e = selectedEdge.split(",");
+    var endVertex = parseInt(e[1]);
+    originalPathLength = shortestPathInfo.pathLengths[endVertex];
     var path = [];
     while (endVertex != shortestPathInfo.startVertex) {
         path.unshift(endVertex);
@@ -342,10 +407,16 @@ function selectableForceDirectedGraph() {
                 graphWithWalking[d.target][d.source] === Infinity) {
                 graphWithWalking[d.source][d.target] = d.weight;
                 graphWithWalking[d.target][d.source] = d.weight;
+
+                originalGraph[d.source][d.target] = d.weight;
+                originalGraph[d.target][d.source] = d.weight;
             } else if (d.weight < graphWithWalking[d.source][d.target]) {
                 // console.log(d);
                 graphWithWalking[d.source][d.target] = d.weight;
                 graphWithWalking[d.target][d.source] = d.weight;
+
+                originalGraph[d.source][d.target] = d.weight;
+                originalGraph[d.target][d.source] = d.weight;
             }
             d.source = graph.nodes[d.source];
             d.target = graph.nodes[d.target];

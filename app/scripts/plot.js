@@ -75,6 +75,7 @@ function assignLinkClass(link, graph) {
             var pos1 = $(this).attr('x2') + "," + $(this).attr('y2');
             var edge = pos0 + "-" + pos1;
             if ($(this).attr("class") === "link-maintain") {
+                edgeToItemObj[edge].classList = [];
                 $(this).attr("class", edgeToOrigColor[edge]);
                 delete edgeToColorMap[edge];
                 console.log(edgeToColorMap);

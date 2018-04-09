@@ -953,212 +953,254 @@
     {
       "source": 0,
       "target": 1,
-      "color": "Red"
+      "weight": 2,
+      "color": "RED"
     },
     {
       "source": 1,
       "target": 2,
-      "color": "Red"
+      "weight": 2,
+      "color": "RED"
     },
     {
       "source": 2,
       "target": 3,
-      "color": "Red"
-    },
-    {
-      "source": 3,
-      "target": 4,
-      "color": "Red"
-    },
-    {
-      "source": 4,
-      "target": 5,
-      "color": "Red"
-    },
-    {
-      "source": 5,
-      "target": 6,
-      "color": "Red"
-    },
-    {
-      "source": 6,
-      "target": 7,
-      "color": "Red"
-    },
-    {
-      "source": 8,
-      "target": 9,
-      "color": "Red"
-    },
-    {
-      "source": 9,
-      "target": 10,
-      "color": "Red"
+      "weight": 1,
+      "color": "RED"
     },
     {
       "source": 2,
       "target": 10,
-      "color": "Red"
+      "weight": 2,
+      "color": "RED"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "weight": 1,
+      "color": "RED"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "weight": 2,
+      "color": "RED"
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "weight": 2,
+      "color": "RED"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "weight": 2,
+      "color": "RED"
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "weight": 1,
+      "color": "RED"
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "weight": 3,
+      "color": "RED"
     },
     {
       "source": 9,
       "target": 19,
-      "color": "Blue"
+      "weight": 2,
+      "color": "BLUE"
     },
     {
       "source": 9,
       "target": 25,
-      "color": "Green"
+      "weight": 2,
+      "color": "GREEN"
     },
     {
       "source": 9,
       "target": 30,
-      "color": "Green"
+      "weight": 1,
+      "color": "GREEN"
     },
     {
       "source": 9,
       "target": 31,
-      "color": "Brown"
+      "weight": 2,
+      "color": "BROWN"
     },
     {
       "source": 9,
       "target": 32,
-      "color": "Brown"
+      "weight": 1,
+      "color": "BROWN"
     },
     {
       "source": 11,
       "target": 12,
-      "color": "Yellow"
+      "weight": 2,
+      "color": "YELLOW"
     },
     {
       "source": 12,
       "target": 13,
-      "color": "Yellow"
+      "weight": 1,
+      "color": "YELLOW"
     },
     {
       "source": 13,
       "target": 14,
-      "color": "Yellow"
+      "weight": 2,
+      "color": "YELLOW"
     },
     {
       "source": 14,
       "target": 15,
-      "color": "Yellow"
+      "weight": 2,
+      "color": "YELLOW"
     },
     {
       "source": 15,
       "target": 16,
-      "color": "Yellow"
+      "weight": 2,
+      "color": "YELLOW"
     },
     {
       "source": 15,
       "target": 25,
-      "color": "Green"
+      "weight": 2,
+      "color": "GREEN"
     },
     {
       "source": 15,
       "target": 26,
-      "color": "Green"
+      "weight": 2,
+      "color": "GREEN"
     },
     {
       "source": 15,
       "target": 32,
-      "color": "Brown"
+      "weight": 1,
+      "color": "BROWN"
     },
     {
       "source": 15,
       "target": 33,
-      "color": "Brown"
+      "weight": 2,
+      "color": "BROWN"
     },
     {
       "source": 16,
       "target": 17,
-      "color": "Yellow"
+      "weight": 2,
+      "color": "YELLOW"
     },
     {
       "source": 17,
       "target": 18,
-      "color": "Yellow"
+      "weight": 2,
+      "color": "YELLOW"
     },
     {
       "source": 18,
       "target": 28,
-      "color": "Green"
+      "weight": 2,
+      "color": "GREEN"
     },
     {
       "source": 19,
       "target": 20,
-      "color": "Blue"
+      "weight": 2,
+      "color": "BLUE"
     },
     {
       "source": 20,
       "target": 21,
-      "color": "Blue"
+      "weight": 1,
+      "color": "BLUE"
     },
     {
       "source": 20,
       "target": 24,
-      "color": "Blue"
+      "weight": 2,
+      "color": "BLUE"
     },
     {
       "source": 21,
       "target": 22,
-      "color": "Blue"
+      "weight": 2,
+      "color": "BLUE"
     },
     {
       "source": 22,
       "target": 23,
-      "color": "Blue"
+      "weight": 2,
+      "color": "BLUE"
     },
     {
       "source": 22,
       "target": 37,
-      "color": "Orange"
+      "weight": 2,
+      "color": "ORANGE"
     },
     {
       "source": 22,
       "target": 38,
-      "color": "Orange"
+      "weight": 2,
+      "color": "ORANGE"
     },
     {
       "source": 26,
       "target": 27,
-      "color": "Green"
+      "weight": 1,
+      "color": "GREEN"
     },
     {
       "source": 27,
       "target": 28,
-      "color": "Green"
+      "weight": 1,
+      "color": "GREEN"
     },
     {
       "source": 29,
       "target": 30,
-      "color": "Green"
+      "weight": 2,
+      "color": "GREEN"
     },
     {
       "source": 33,
       "target": 34,
-      "color": "Brown"
+      "weight": 2,
+      "color": "BROWN"
     },
     {
       "source": 34,
       "target": 35,
-      "color": "Orange"
+      "weight": 1,
+      "color": "ORANGE"
     },
     {
       "source": 34,
       "target": 36,
-      "color": "Orange"
+      "weight": 2,
+      "color": "ORANGE"
     },
     {
       "source": 36,
       "target": 37,
-      "color": "Orange"
+      "weight": 1,
+      "color": "ORANGE"
     },
     {
       "source": 37,
       "target": 39,
-      "color": "Orange"
+      "weight": 2,
+      "color": "ORANGE"
     }
   ]
 }
