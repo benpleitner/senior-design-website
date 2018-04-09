@@ -155,6 +155,7 @@ header {
   outline: 0;
 }
 span.choose {
+  font-size: 18px;
   padding: 5px 0 10px;
   display: inherit
 }
