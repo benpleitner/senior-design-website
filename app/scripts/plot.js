@@ -14,6 +14,8 @@ var prevClass = "";
 var prevLine;
 var edgeToOrigColor = {};
 var edgeToItemObj = {};
+var cVal = 0;
+var dVal = 0;
 
 function runAlgorithm() {
     if (selectedEdge != "") {
@@ -528,4 +530,64 @@ function selectableForceDirectedGraph() {
         brush.select('.background').style('cursor', 'auto')
         svg_graph.call(zoomer);
     }
+
+    // C-value
+    $(".c-val .close").on("click", function() {
+        document.getElementById("overlay").style.visibility = "hidden";
+        document.getElementById("overlay").style.opacity = "0";
+    });
+
+    $('.c-val .dropdown').click(function () {
+        $(this).attr('tabindex', 1).focus();
+        $(this).toggleClass('active');
+        $(this).find('.dropdown-menu').slideToggle(300);
+    });
+
+    $('.c-val .dropdown').focusout(function () {
+        $(this).removeClass('active');
+        $(this).find('.dropdown-menu').slideUp(300);
+    });
+
+    $('.c-val .dropdown .dropdown-menu li').click(function () {
+        $(this).parents('.dropdown').find('span').text($(this).text());
+        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+        cVal = $(this).attr('id');
+        console.log("C-VALUE: " + cVal);
+    });
+
+    $('.c-val .dropdown-menu li').click(function () {
+        var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
+            msg = '<span class="msg">Hidden input value: ';
+        $('.msg').html(msg + input + '</span>');
+    });
+
+    // D-value
+    $(".d-val .close").on("click", function() {
+        document.getElementById("overlay").style.visibility = "hidden";
+        document.getElementById("overlay").style.opacity = "0";
+    });
+
+    $('.d-val .dropdown').click(function () {
+        $(this).attr('tabindex', 1).focus();
+        $(this).toggleClass('active');
+        $(this).find('.dropdown-menu').slideToggle(300);
+    });
+
+    $('.d-val .dropdown').focusout(function () {
+        $(this).removeClass('active');
+        $(this).find('.dropdown-menu').slideUp(300);
+    });
+
+    $('.d-val .dropdown .dropdown-menu li').click(function () {
+        $(this).parents('.dropdown').find('span').text($(this).text());
+        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+        dVal = $(this).attr('id');
+        console.log("D-VALUE: " + dVal);
+    });
+
+    $('.d-val .dropdown-menu li').click(function () {
+        var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
+            msg = '<span class="msg">Hidden input value: ';
+        $('.msg').html(msg + input + '</span>');
+    });
 }
