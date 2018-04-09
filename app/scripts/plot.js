@@ -177,6 +177,7 @@ function writeCookie() {
     str = str.slice(0, -1);
     document.cookie = str;
     console.log(document.cookie);
+    $('#message').text("You have successfully set the maintenance set.");
 }
 
 function selectableForceDirectedGraph() {

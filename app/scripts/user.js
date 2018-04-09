@@ -23,9 +23,20 @@ for (var i = 0; i < 40; i++) {
         originalGraph[i][j] = Infinity;
     }
 }
+var isMaintained = false;
+var edgeToItemObj = {};
+var firstTime = true;
 
 function runAlgorithm() {
     if (selectedCount == 2) {
+        isMaintained = true;
+        for (key in edgeToItemObj) {
+            // console.log(edgeToItemObj[key]);
+            if (edgeToItemObj[key].classList[0] != "link-walk" &&
+                edgeToItemObj[key].classList[0] != "link-maintain") {
+                edgeToItemObj[key].classList = ["no-link"];
+            }
+        }
         var shortestPathInfo = dijkstra();
         var path = constructPath(shortestPathInfo);
         var prev = shortestPathInfo.startVertex;
@@ -37,6 +48,9 @@ function runAlgorithm() {
         assignLinkClass(globalLink, globalGraph);
         constructPathOriginal(dijkstraOriginal());
         $('#values').text("Original trip length: " + originalPathLength + ", Current trip length: " + currentPathLength);
+        for (key in edgeToItemObj) {
+            console.log(edgeToItemObj[key].classList);
+        }
     } else {
         document.getElementById("overlay").style.visibility = "visible";
         document.getElementById("overlay").style.opacity = "1";
@@ -65,23 +79,56 @@ function assignLinkClass(link, graph) {
                 return "link-maintain-walk";
             } else {
                 maintainCount++;
-                return "link-maintain";
+                if (d.color === "BLUE") {
+                    return "link-blue";
+                } else if (d.color === "RED") {
+                    return "link-red";
+                } else if (d.color === "GREEN") {
+                    return "link-green";
+                } else if (d.color === "ORANGE") {
+                    return "link-orange";
+                } else if (d.color === "YELLOW") {
+                    return "link-yellow";
+                } else if (d.color === "BROWN") {
+                    return "link-brown";
+                } else if (d.color === "WALK") {
+                    return "link-walk";
+                }
+                // return "link-selected";
             }
         }
 
-        if (d.color === "BLUE") {
-            return "link-blue";
-        } else if (d.color === "RED") {
-            return "link-red";
-        } else if (d.color === "GREEN") {
-            return "link-green";
-        } else if (d.color === "ORANGE") {
-            return "link-orange";
-        } else if (d.color === "YELLOW") {
-            return "link-yellow";
-        } else if (d.color === "BROWN") {
-            return "link-brown";
-        } else if (d.color === "WALK") {
+        if (isMaintained) {
+            if (d.color === "BLUE") {
+                return "light-blue";
+            } else if (d.color === "RED") {
+                return "light-red";
+            } else if (d.color === "GREEN") {
+                return "light-green";
+            } else if (d.color === "ORANGE") {
+                return "light-orange";
+            } else if (d.color === "YELLOW") {
+                return "light-yellow";
+            } else if (d.color === "BROWN") {
+                return "light-brown";
+            }
+        } else {
+            if (d.color === "BLUE") {
+                return "link-blue";
+            } else if (d.color === "RED") {
+                return "link-red";
+            } else if (d.color === "GREEN") {
+                return "link-green";
+            } else if (d.color === "ORANGE") {
+                return "link-orange";
+            } else if (d.color === "YELLOW") {
+                return "link-yellow";
+            } else if (d.color === "BROWN") {
+                return "link-brown";
+            }
+        }
+
+        if (d.color === "WALK") {
             return "link-walk";
         }
         // if (edges[d.source["id"]][d.target["id"]] != 0) {
@@ -95,6 +142,19 @@ function assignLinkClass(link, graph) {
     .attr("y1", function(d) { return d.source.y; })
     .attr("x2", function(d) { return d.target.x; })
     .attr("y2", function(d) { return d.target.y; });
+
+    if (firstTime) {
+        firstTime = false;
+        var children = link[0].parentNode.childNodes;
+        var count = 0;
+        for (var item of children.entries()) {
+            var pos0 = item[1].attributes[1].nodeValue + "," + item[1].attributes[2].nodeValue;
+            var pos1 = item[1].attributes[3].nodeValue + "," + item[1].attributes[4].nodeValue;
+            var edge = pos0 + "-" + pos1;
+            edgeToItemObj[edge] = item[1];
+            count++;
+        }
+    }
 }
 
 function dijkstra() {
